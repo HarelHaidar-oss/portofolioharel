@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portofolio Harel Haidar - Mahasiswa Teknik Sipil & Calon Insinyur Sipil berfokus pada perancangan struktur, pemodelan 3D, dan manajemen konstruksi berkelanjutan.">
+    <meta name="author" content="Harel Haidar">
+    <title>Harel Haidar - Portofolio Calon Insinyur Sipil</title>
+
+    <!-- Favicon (Hard Hat SVG) -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='%230ea5e9' d='M256 32C175.4 32 110.1 97.3 110.1 177.9c0 30.2 9.2 58.2 24.9 81.6C77.4 286.9 32 344.8 32 413.3c0 19.2 15.6 34.7 34.7 34.7h378.6c19.2 0 34.7-15.6 34.7-34.7 0-68.5-45.4-126.4-103-153.8 15.7-23.4 24.9-51.4 24.9-81.6C401.9 97.3 336.6 32 256 32z'/></svg>">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS (Play CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Configuration (Separated JS) -->
+    <script src="js/tailwind-config.js"></script>
+
+    <!-- Custom Stylesheet (Separated CSS) -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body
+    class="bg-slate-50 text-slate-800 dark:bg-navy-950 dark:text-slate-100 transition-colors duration-300 relative selection:bg-cyanAccent-500 selection:text-white">
+
+    <!-- Navigation Header -->
+    <header
+        class="fixed top-0 left-0 right-0 z-50 glass-header bg-white/80 dark:bg-navy-950/80 border-b border-slate-200/80 dark:border-navy-800/80 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand / Logo -->
+                <div class="flex-shrink-0 font-extrabold text-xl tracking-wider">
+                    <a href="#beranda" class="flex items-center gap-2.5">
+                        <span
+                            class="bg-gradient-to-tr from-cyanAccent-600 to-blue-600 text-white p-2 rounded-xl text-xs font-black shadow-lg shadow-cyanAccent-500/20">
+                            <i class="fas fa-hard-hat text-sm"></i>
+                        </span>
+                        <span
+                            class="bg-gradient-to-r from-slate-900 via-slate-700 to-cyanAccent-600 dark:from-white dark:via-slate-200 dark:to-cyanAccent-400 bg-clip-text text-transparent">
+                            Portofolio
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden md:flex space-x-8 items-center font-medium text-sm">
+                    <a href="#beranda"
+                        class="nav-link text-slate-600 dark:text-slate-300 hover:text-cyanAccent-500 dark:hover:text-cyanAccent-400">Beranda</a>
+                    <a href="#tentang"
+                        class="nav-link text-slate-600 dark:text-slate-300 hover:text-cyanAccent-500 dark:hover:text-cyanAccent-400">Tentang
+                        Saya</a>
+                    <a href="#keahlian"
+                        class="nav-link text-slate-600 dark:text-slate-300 hover:text-cyanAccent-500 dark:hover:text-cyanAccent-400">Keahlian</a>
+                    <a href="#proyek"
+                        class="nav-link text-slate-600 dark:text-slate-300 hover:text-cyanAccent-500 dark:hover:text-cyanAccent-400">Proyek</a>
+                    <a href="#kontak"
+                        class="nav-link text-slate-600 dark:text-slate-300 hover:text-cyanAccent-500 dark:hover:text-cyanAccent-400">Kontak</a>
+
+                    <!-- Theme Toggle Button (Desktop) -->
+                    <button id="theme-toggle" type="button" aria-label="Ganti Tema"
+                        class="p-2.5 rounded-xl bg-slate-100 dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-slate-600 dark:text-slate-300 hover:text-cyanAccent-500 dark:hover:text-cyanAccent-400 hover:border-cyanAccent-500/40 transition-all">
+                        <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
+                        <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
+                    </button>
+                </nav>
+
+                <!-- Mobile Navigation Controls -->
+                <div class="flex md:hidden items-center gap-2">
+                    <button id="theme-toggle-mobile" type="button" aria-label="Ganti Tema"
+                        class="p-2 rounded-xl bg-slate-100 dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-slate-600 dark:text-slate-300">
+                        <i id="theme-toggle-dark-icon-mobile" class="fas fa-moon hidden"></i>
+                        <i id="theme-toggle-light-icon-mobile" class="fas fa-sun hidden"></i>
+                    </button>
+                    <button id="mobile-menu-btn" type="button" aria-label="Menu Navigasi"
+                        class="p-2 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-navy-900 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white/95 dark:bg-navy-900 border-b border-slate-200 dark:border-navy-800 px-4 pt-3 pb-5 space-y-2">
+            <a href="#beranda"
+                class="block py-2.5 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-navy-800 text-slate-700 dark:text-slate-200 font-medium">Beranda</a>
+            <a href="#tentang"
+                class="block py-2.5 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-navy-800 text-slate-700 dark:text-slate-200 font-medium">Tentang
+                Saya</a>
+            <a href="#keahlian"
+                class="block py-2.5 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-navy-800 text-slate-700 dark:text-slate-200 font-medium">Keahlian</a>
+            <a href="#proyek"
+                class="block py-2.5 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-navy-800 text-slate-700 dark:text-slate-200 font-medium">Proyek</a>
+            <a href="#kontak"
+                class="block py-2.5 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-navy-800 text-slate-700 dark:text-slate-200 font-medium">Kontak</a>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main>
+        <!-- Hero Section -->
+        <section id="beranda"
+            class="relative pt-32 pb-20 md:pt-40 md:pb-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center justify-between gap-12 min-h-[92vh] grid-pattern">
+            <div class="flex-1 text-center md:text-left z-10">
+                <div
+                    class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-cyan-50 dark:bg-navy-900 border border-cyan-200 dark:border-cyanAccent-500/30 text-cyan-700 dark:text-cyanAccent-400 font-semibold text-xs sm:text-sm mb-6 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-cyanAccent-500 animate-ping"></span>
+                    <span>Mahasiswa Teknik Sipil</span>
+                </div>
+
+                <h1
+                    class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 leading-tight text-slate-900 dark:text-white">
+                    HAREL HAIDAR
+                </h1>
+
+                <h2
+                    class="text-xl sm:text-2xl font-bold text-cyan-600 dark:text-cyanAccent-400 mb-6 flex items-center justify-center md:justify-start gap-2">
+                    <i class="fas fa-drafting-compass"></i> Calon Insinyur Sipil
+                </h2>
+
+                <p
+                    class="text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-2xl mx-auto md:mx-0 mb-8 leading-relaxed">
+                    Berfokus pada perancangan struktur bangunan, analisis ketahanan infrastruktur, serta penerapan
+                    teknologi modern dalam dunia konstruksi berkelanjutan.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#proyek"
+                        class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-cyanAccent-600 to-blue-600 text-white font-semibold hover:from-cyanAccent-500 hover:to-blue-500 transition-all shadow-lg shadow-cyanAccent-600/25 flex items-center justify-center gap-2.5">
+                        <i class="fas fa-building text-sm"></i> Lihat Proyek
+                    </a>
+                    <a href="#kontak"
+                        class="px-7 py-3.5 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-700 hover:border-cyanAccent-500/50 text-slate-700 dark:text-slate-200 font-semibold hover:bg-slate-100 dark:hover:bg-navy-800 transition-all flex items-center justify-center gap-2.5 shadow-sm">
+                        <i class="fas fa-paper-plane text-sm"></i> Hubungi Saya
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Photo Profile Box -->
+            <div class="flex-1 flex justify-center z-10 w-full md:w-auto">
+                <div
+                    class="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px] aspect-[4/5] rounded-3xl overflow-hidden border border-cyan-200 dark:border-cyanAccent-500/30 shadow-2xl group bg-slate-200 dark:bg-navy-800">
+                    <img src="assets/foto-profil.jpeg" alt="Foto Profil Harel Haidar" loading="eager"
+                        class="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none">
+                    </div>
+                    <div class="absolute inset-x-0 bottom-0 p-5 sm:p-6 text-left">
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight drop-shadow-lg">Harel
+                            Haidar</h3>
+                        <p class="text-[11px] sm:text-xs text-cyan-300 uppercase tracking-[0.2em] mt-1.5 font-semibold">
+                            Civil Engineering Student</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="tentang"
+            class="py-24 bg-slate-100/70 dark:bg-navy-900/60 border-y border-slate-200 dark:border-navy-800/80 transition-colors duration-300 fade-in-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span
+                        class="text-cyan-600 dark:text-cyanAccent-400 font-bold text-xs uppercase tracking-widest">Latar
+                        Belakang</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold mt-1 text-slate-900 dark:text-white">Tentang Saya
+                    </h2>
+                    <div class="w-16 h-1 bg-cyanAccent-500 mx-auto rounded-full mt-3"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-5">
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100 leading-snug">
+                            Membangun Masa Depan Melalui Infrastruktur Kokoh & Inovatif
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Saya adalah seorang mahasiswa Teknik Sipil yang memiliki dedikasi tinggi dan bercita-cita
+                            menjadi seorang Insinyur Sipil profesional. Saya berfokus pada penguasaan analisis struktur,
+                            pemodelan bangunan, serta manajemen proyek konstruksi.
+                        </p>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Dengan pemahaman dasar rekayasa sipil serta semangat belajar yang kuat, saya aktif mendalami
+                            berbagai perangkat lunak perancangan teknik untuk siap berkontribusi pada pembangunan
+                            infrastruktur bangsa.
+                        </p>
+
+                        <!-- Key Aspirations Cards -->
+                        <div class="grid grid-cols-2 gap-4 pt-4">
+                            <div
+                                class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 shadow-sm">
+                                <span class="text-cyan-600 dark:text-cyanAccent-400 text-2xl font-black block mb-1">
+                                    <i class="fas fa-university"></i>
+                                </span>
+                                <span class="text-xs text-slate-500 dark:text-slate-400 block font-medium">Status
+                                    Akademik</span>
+                                <span class="text-sm font-bold text-slate-800 dark:text-slate-200">Mahasiswa
+                                    Aktif</span>
+                            </div>
+                            <div
+                                class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 shadow-sm">
+                                <span class="text-cyan-600 dark:text-cyanAccent-400 text-2xl font-black block mb-1">
+                                    <i class="fas fa-bullseye"></i>
+                                </span>
+                                <span class="text-xs text-slate-500 dark:text-slate-400 block font-medium">Cita-Cita
+                                    Utama</span>
+                                <span class="text-sm font-bold text-slate-800 dark:text-slate-200">Insinyur Sipil
+                                    (Ir.)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Structural Focus Card -->
+                    <div
+                        class="bg-white dark:bg-navy-900 p-8 rounded-2xl border border-slate-200 dark:border-navy-800 space-y-6 shadow-xl relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 opacity-5 text-cyanAccent-500 pointer-events-none">
+                            <i class="fas fa-city text-9xl"></i>
+                        </div>
+
+                        <h4
+                            class="text-xl font-bold text-slate-900 dark:text-slate-100 border-b border-slate-200 dark:border-navy-800 pb-3 flex items-center gap-2">
+                            <i class="fas fa-compass text-cyan-600 dark:text-cyanAccent-400"></i> Fokus Perminatan
+                        </h4>
+
+                        <div class="space-y-4 text-sm">
+                            <div class="flex items-start gap-3">
+                                <span
+                                    class="p-2 rounded-lg bg-slate-100 dark:bg-navy-800 text-cyan-600 dark:text-cyanAccent-400 mt-0.5">
+                                    <i class="fas fa-cubes text-xs"></i>
+                                </span>
+                                <div>
+                                    <h5 class="font-bold text-slate-800 dark:text-slate-200">Perancangan & Analisis
+                                        Struktur</h5>
+                                    <p class="text-slate-500 dark:text-slate-400 text-xs mt-0.5">Mempelajari elemen
+                                        beton bertulang, baja struktur, dan pembebanan.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <span
+                                    class="p-2 rounded-lg bg-slate-100 dark:bg-navy-800 text-cyan-600 dark:text-cyanAccent-400 mt-0.5">
+                                    <i class="fas fa-tasks text-xs"></i>
+                                </span>
+                                <div>
+                                    <h5 class="font-bold text-slate-800 dark:text-slate-200">Manajemen Konstruksi</h5>
+                                    <p class="text-slate-500 dark:text-slate-400 text-xs mt-0.5">Estimasi biaya (RAB),
+                                        penjadwalan proyek, dan manajemen risiko.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <span
+                                    class="p-2 rounded-lg bg-slate-100 dark:bg-navy-800 text-cyan-600 dark:text-cyanAccent-400 mt-0.5">
+                                    <i class="fas fa-map-marked-alt text-xs"></i>
+                                </span>
+                                <div>
+                                    <h5 class="font-bold text-slate-800 dark:text-slate-200">Survei & Pemetaan Lokasi
+                                    </h5>
+                                    <p class="text-slate-500 dark:text-slate-400 text-xs mt-0.5">Pengukuran topografi
+                                        lapangan dan pemetaan tata letak lahan.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="keahlian" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-section">
+            <div class="text-center mb-16">
+                <span
+                    class="text-cyan-600 dark:text-cyanAccent-400 font-bold text-xs uppercase tracking-widest">Kompetensi
+                    Teknik</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-1 text-slate-900 dark:text-white">Keahlian & Perangkat
+                    Lunak</h2>
+                <div class="w-16 h-1 bg-cyanAccent-500 mx-auto rounded-full mt-3"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Software / Technical Skills -->
+                <div
+                    class="bg-white dark:bg-navy-900 p-7 rounded-2xl border border-slate-200 dark:border-navy-800 shadow-sm">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2.5 text-slate-900 dark:text-slate-100">
+                        <i class="fas fa-laptop-code text-cyan-600 dark:text-cyanAccent-400"></i> Software Engineering
+                        Sipil
+                    </h3>
+                    <div class="space-y-5">
+                        <div>
+                            <div
+                                class="flex justify-between mb-1 text-sm font-semibold text-slate-700 dark:text-slate-200">
+                                <span>AutoCAD (2D Design & Drafting)</span>
+                                <span class="text-cyan-600 dark:text-cyanAccent-400">85%</span>
+                            </div>
+                            <div
+                                class="w-full bg-slate-200 dark:bg-navy-950 rounded-full h-2.5 border border-slate-300 dark:border-navy-800">
+                                <div class="bg-gradient-to-r from-cyanAccent-600 to-blue-500 h-2.5 rounded-full"
+                                    style="width: 85%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div
+                                class="flex justify-between mb-1 text-sm font-semibold text-slate-700 dark:text-slate-200">
+                                <span>SAP2000 / ETABS (Analisis Struktur)</span>
+                                <span class="text-cyan-600 dark:text-cyanAccent-400">75%</span>
+                            </div>
+                            <div
+                                class="w-full bg-slate-200 dark:bg-navy-950 rounded-full h-2.5 border border-slate-300 dark:border-navy-800">
+                                <div class="bg-gradient-to-r from-cyanAccent-600 to-blue-500 h-2.5 rounded-full"
+                                    style="width: 75%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div
+                                class="flex justify-between mb-1 text-sm font-semibold text-slate-700 dark:text-slate-200">
+                                <span>SketchUp (3D Building Modeling)</span>
+                                <span class="text-cyan-600 dark:text-cyanAccent-400">80%</span>
+                            </div>
+                            <div
+                                class="w-full bg-slate-200 dark:bg-navy-950 rounded-full h-2.5 border border-slate-300 dark:border-navy-800">
+                                <div class="bg-gradient-to-r from-cyanAccent-600 to-blue-500 h-2.5 rounded-full"
+                                    style="width: 80%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div
+                                class="flex justify-between mb-1 text-sm font-semibold text-slate-700 dark:text-slate-200">
+                                <span>Microsoft Excel (RAB & Hitungan Struktur)</span>
+                                <span class="text-cyan-600 dark:text-cyanAccent-400">90%</span>
+                            </div>
+                            <div
+                                class="w-full bg-slate-200 dark:bg-navy-950 rounded-full h-2.5 border border-slate-300 dark:border-navy-800">
+                                <div class="bg-gradient-to-r from-cyanAccent-600 to-blue-500 h-2.5 rounded-full"
+                                    style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Field Skills & Knowledge -->
+                <div
+                    class="bg-white dark:bg-navy-900 p-7 rounded-2xl border border-slate-200 dark:border-navy-800 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold mb-6 flex items-center gap-2.5 text-slate-900 dark:text-slate-100">
+                            <i class="fas fa-tools text-cyan-600 dark:text-cyanAccent-400"></i> Keahlian Lapangan &
+                            Teori
+                        </h3>
+
+                        <div class="flex flex-wrap gap-2.5 mb-8">
+                            <span
+                                class="px-4 py-2.5 bg-slate-50 dark:bg-navy-950 border border-slate-200 dark:border-navy-800 rounded-xl text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200 flex items-center gap-2">
+                                <i class="fas fa-check text-cyan-600 dark:text-cyanAccent-400"></i> Analisis Mekanika
+                                Rekayasa
+                            </span>
+                            <span
+                                class="px-4 py-2.5 bg-slate-50 dark:bg-navy-950 border border-slate-200 dark:border-navy-800 rounded-xl text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200 flex items-center gap-2">
+                                <i class="fas fa-check text-cyan-600 dark:text-cyanAccent-400"></i> Pengukuran Ilmiah
+                                Topografi
+                            </span>
+                            <span
+                                class="px-4 py-2.5 bg-slate-50 dark:bg-navy-950 border border-slate-200 dark:border-navy-800 rounded-xl text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200 flex items-center gap-2">
+                                <i class="fas fa-check text-cyan-600 dark:text-cyanAccent-400"></i> Estimasi Biaya & RAB
+                            </span>
+                            <span
+                                class="px-4 py-2.5 bg-slate-50 dark:bg-navy-950 border border-slate-200 dark:border-navy-800 rounded-xl text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200 flex items-center gap-2">
+                                <i class="fas fa-check text-cyan-600 dark:text-cyanAccent-400"></i> Teknologi Bahan
+                                Bangunan
+                            </span>
+                            <span
+                                class="px-4 py-2.5 bg-slate-50 dark:bg-navy-950 border border-slate-200 dark:border-navy-800 rounded-xl text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200 flex items-center gap-2">
+                                <i class="fas fa-check text-cyan-600 dark:text-cyanAccent-400"></i> Manajemen Proyek K3
+                            </span>
+                        </div>
+
+                        <h4 class="font-bold text-slate-800 dark:text-slate-200 mb-3 flex items-center gap-2 text-sm">
+                            <i class="fas fa-hard-hat text-cyan-600 dark:text-cyanAccent-400"></i> Penguasaan Alat Ukur
+                            Lapangan
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1.5 bg-cyan-50 dark:bg-navy-800 text-cyan-700 dark:text-cyanAccent-300 rounded-lg text-xs font-semibold">Total
+                                Station</span>
+                            <span
+                                class="px-3 py-1.5 bg-cyan-50 dark:bg-navy-800 text-cyan-700 dark:text-cyanAccent-300 rounded-lg text-xs font-semibold">Waterpass
+                                / Auto Level</span>
+                            <span
+                                class="px-3 py-1.5 bg-cyan-50 dark:bg-navy-800 text-cyan-700 dark:text-cyanAccent-300 rounded-lg text-xs font-semibold">Meteran
+                                Pita Laser</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="proyek"
+            class="py-24 bg-slate-100/70 dark:bg-navy-900/60 border-y border-slate-200 dark:border-navy-800/80 transition-colors duration-300 fade-in-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span
+                        class="text-cyan-600 dark:text-cyanAccent-400 font-bold text-xs uppercase tracking-widest">Karya
+                        & Studi Kasus</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold mt-1 text-slate-900 dark:text-white">Proyek Akademik
+                        & Latihan</h2>
+                    <div class="w-16 h-1 bg-cyanAccent-500 mx-auto rounded-full mt-3 mb-4"></div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm max-w-xl mx-auto">Hasil perancangan tugas
+                        kuliah, studi kasus struktur, dan pemodelan bangunan.</p>
+                </div>
+
+                <!-- Filter Category Buttons -->
+                <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
+                    <button
+                        class="filter-btn active px-5 py-2.5 rounded-xl bg-cyanAccent-600 text-white text-xs sm:text-sm font-semibold transition-all shadow-md"
+                        data-filter="all">Semua</button>
+                    <button
+                        class="filter-btn px-5 py-2.5 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-slate-700 dark:text-slate-300 text-xs sm:text-sm font-semibold hover:border-cyanAccent-500/40 transition-all"
+                        data-filter="struktur">Struktur</button>
+                    <button
+                        class="filter-btn px-5 py-2.5 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-slate-700 dark:text-slate-300 text-xs sm:text-sm font-semibold hover:border-cyanAccent-500/40 transition-all"
+                        data-filter="desain">Desain 3D</button>
+                    <button
+                        class="filter-btn px-5 py-2.5 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-slate-700 dark:text-slate-300 text-xs sm:text-sm font-semibold hover:border-cyanAccent-500/40 transition-all"
+                        data-filter="manajemen">Manajemen/RAB</button>
+                </div>
+
+                <!-- Project Cards Grid -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1: Struktur -->
+                    <div class="project-card group bg-white dark:bg-navy-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-navy-800 hover:border-cyanAccent-500/50 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col"
+                        data-category="struktur">
+                        <div class="relative overflow-hidden">
+                            <img src="https://placehold.co/600x400/0b1326/38bdf8?text=Perancangan+Gedung+Beton"
+                                alt="Perancangan Struktur Gedung" loading="lazy"
+                                class="img-zoom w-full h-48 object-cover">
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3
+                                    class="text-lg font-bold mb-2 text-slate-900 dark:text-slate-100 group-hover:text-cyanAccent-500 dark:group-hover:text-cyanAccent-400 transition-colors">
+                                    Perancangan Struktur Gedung 4 Lantai</h3>
+                                <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mb-4 leading-relaxed">
+                                    Analisis beban gempa, perancangan balok, kolom, dan plat lantai beton bertulang.</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 dark:bg-navy-950 text-cyan-700 dark:text-cyanAccent-400 border border-slate-200 dark:border-navy-800">SAP2000</span>
+                                    <span
+                                        class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 dark:bg-navy-950 text-cyan-700 dark:text-cyanAccent-400 border border-slate-200 dark:border-navy-800">AutoCAD</span>
+                                </div>
+                            </div>
+                            <div
+                                class="pt-4 border-t border-slate-100 dark:border-navy-800/80 flex justify-between items-center text-xs">
+                                <span class="text-slate-500 dark:text-slate-400"><i
+                                        class="fas fa-folder text-cyan-600 dark:text-cyanAccent-400"></i> Tugas
+                                    Struktur</span>
+                                <span
+                                    class="text-cyan-600 dark:text-cyanAccent-400 font-bold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Detail
+                                    Proyek <i class="fas fa-arrow-right text-[10px]"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2: Desain 3D -->
+                    <div class="project-card group bg-white dark:bg-navy-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-navy-800 hover:border-cyanAccent-500/50 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col"
+                        data-category="desain">
+                        <div class="relative overflow-hidden">
+                            <img src="https://placehold.co/600x400/0b1326/38bdf8?text=Pemodelan+3D+Jembatan"
+                                alt="Visualisasi 3D Jembatan" loading="lazy" class="img-zoom w-full h-48 object-cover">
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3
+                                    class="text-lg font-bold mb-2 text-slate-900 dark:text-slate-100 group-hover:text-cyanAccent-500 dark:group-hover:text-cyanAccent-400 transition-colors">
+                                    Visualisasi 3D Jembatan Rangka Baja</h3>
+                                <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mb-4 leading-relaxed">
+                                    Pemodelan 3D arsitektural jembatan bentang menengah dengan detail rangka baja truss.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 dark:bg-navy-950 text-cyan-700 dark:text-cyanAccent-400 border border-slate-200 dark:border-navy-800">SketchUp</span>
+                                    <span
+                                        class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 dark:bg-navy-950 text-cyan-700 dark:text-cyanAccent-400 border border-slate-200 dark:border-navy-800">Render</span>
+                                </div>
+                            </div>
+                            <div
+                                class="pt-4 border-t border-slate-100 dark:border-navy-800/80 flex justify-between items-center text-xs">
+                                <span class="text-slate-500 dark:text-slate-400"><i
+                                        class="fas fa-folder text-cyan-600 dark:text-cyanAccent-400"></i> Desain
+                                    3D</span>
+                                <span
+                                    class="text-cyan-600 dark:text-cyanAccent-400 font-bold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Detail
+                                    Proyek <i class="fas fa-arrow-right text-[10px]"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3: Manajemen/RAB -->
+                    <div class="project-card group bg-white dark:bg-navy-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-navy-800 hover:border-cyanAccent-500/50 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col"
+                        data-category="manajemen">
+                        <div class="relative overflow-hidden">
+                            <img src="https://placehold.co/600x400/0b1326/38bdf8?text=Estimasi+Biaya+RAB"
+                                alt="Rencana Anggaran Biaya" loading="lazy" class="img-zoom w-full h-48 object-cover">
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3
+                                    class="text-lg font-bold mb-2 text-slate-900 dark:text-slate-100 group-hover:text-cyanAccent-500 dark:group-hover:text-cyanAccent-400 transition-colors">
+                                    Penyusunan RAB Proyek Rumah Tinggal</h3>
+                                <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mb-4 leading-relaxed">
+                                    Analisis harga satuan pekerjaan (AHSP) serta penyusunan kurva S proyek konstruksi.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 dark:bg-navy-950 text-cyan-700 dark:text-cyanAccent-400 border border-slate-200 dark:border-navy-800">MS
+                                        Excel</span>
+                                    <span
+                                        class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 dark:bg-navy-950 text-cyan-700 dark:text-cyanAccent-400 border border-slate-200 dark:border-navy-800">AHSP</span>
+                                </div>
+                            </div>
+                            <div
+                                class="pt-4 border-t border-slate-100 dark:border-navy-800/80 flex justify-between items-center text-xs">
+                                <span class="text-slate-500 dark:text-slate-400"><i
+                                        class="fas fa-folder text-cyan-600 dark:text-cyanAccent-400"></i>
+                                    Manajemen</span>
+                                <span
+                                    class="text-cyan-600 dark:text-cyanAccent-400 font-bold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Detail
+                                    Proyek <i class="fas fa-arrow-right text-[10px]"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="kontak" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-section">
+            <div class="text-center mb-16">
+                <span
+                    class="text-cyan-600 dark:text-cyanAccent-400 font-bold text-xs uppercase tracking-widest">Komunikasi</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-1 text-slate-900 dark:text-white">Hubungi Saya</h2>
+                <div class="w-16 h-1 bg-cyanAccent-500 mx-auto rounded-full mt-3"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Information Details -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 text-slate-900 dark:text-slate-100">Mari Terhubung</h3>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+                            Saya selalu terbuka untuk berdiskusi mengenai proyek rekayasa sipil, kerja sama akademis,
+                            maupun peluang magang di bidang perancangan dan konstruksi.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <a href="mailto:Harelpro179@gmail.com"
+                            class="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 shadow-sm hover:border-cyanAccent-500/50 hover:bg-slate-50 dark:hover:bg-navy-800/80 transition-all group"
+                            title="Kirim email ke Harelpro179@gmail.com">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-slate-100 dark:bg-navy-950 border border-slate-200 dark:border-navy-800 text-cyan-600 dark:text-cyanAccent-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-slate-500 dark:text-slate-400">Email</span>
+                                <span
+                                    class="font-bold text-sm text-slate-800 dark:text-slate-200 group-hover:text-cyan-600 dark:group-hover:text-cyanAccent-400 transition-colors">Harelpro179@gmail.com</span>
+                            </div>
+                        </a>
+
+                        <div
+                            class="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 shadow-sm">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-slate-100 dark:bg-navy-950 border border-slate-200 dark:border-navy-800 text-cyan-600 dark:text-cyanAccent-400 flex items-center justify-center text-xl">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-slate-500 dark:text-slate-400">Lokasi</span>
+                                <span class="font-bold text-sm text-slate-800 dark:text-slate-200">Indonesia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Links -->
+                    <div>
+                        <h4 class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4">
+                            Media Sosial & Jaringan</h4>
+                        <div class="flex flex-wrap items-center gap-3">
+                            <a href="https://instagram.com/h4nv_destro" target="_blank" rel="noopener noreferrer"
+                                aria-label="Instagram Harel (@h4nv_destro)" title="Instagram: @h4nv_destro"
+                                class="w-11 h-11 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-gradient-to-r hover:from-pink-600 hover:to-rose-600 hover:text-white hover:border-pink-500 transition-all shadow-sm">
+                                <i class="fab fa-instagram text-lg"></i>
+                            </a>
+                            <a href="https://github.com/HarelHaidar-oss" target="_blank" rel="noopener noreferrer"
+                                aria-label="GitHub Harel (HarelHaidar-oss)" title="GitHub: HarelHaidar-oss"
+                                class="w-11 h-11 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-900 hover:text-white hover:border-slate-800 dark:hover:bg-cyanAccent-600 dark:hover:border-cyanAccent-500 transition-all shadow-sm">
+                                <i class="fab fa-github text-lg"></i>
+                            </a>
+                            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"
+                                aria-label="LinkedIn Harel" title="LinkedIn Harel"
+                                class="w-11 h-11 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-[#0077b5] hover:text-white hover:border-[#0077b5] transition-all shadow-sm">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div
+                    class="bg-white dark:bg-navy-900 p-8 rounded-2xl border border-slate-200 dark:border-navy-800 shadow-xl">
+                    <form id="contact-form" action="mailto:Harelpro179@gmail.com" method="POST" enctype="text/plain"
+                        class="space-y-5">
+                        <div>
+                            <label for="name"
+                                class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">Nama
+                                Lengkap</label>
+                            <input type="text" id="name" name="name" autocomplete="name" required
+                                class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-navy-950 border border-slate-200 dark:border-navy-800 text-slate-800 dark:text-slate-100 focus:border-cyanAccent-500 focus:ring-1 focus:ring-cyanAccent-500 focus:outline-none transition-all text-sm"
+                                placeholder="Nama Anda">
+                        </div>
+
+                        <div>
+                            <label for="email"
+                                class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">Email</label>
+                            <input type="email" id="email" name="email" autocomplete="email" required
+                                class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-navy-950 border border-slate-200 dark:border-navy-800 text-slate-800 dark:text-slate-100 focus:border-cyanAccent-500 focus:ring-1 focus:ring-cyanAccent-500 focus:outline-none transition-all text-sm"
+                                placeholder="email@domain.com">
+                        </div>
+
+                        <div>
+                            <label for="message"
+                                class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">Pesan</label>
+                            <textarea id="message" name="message" rows="4" required
+                                class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-navy-950 border border-slate-200 dark:border-navy-800 text-slate-800 dark:text-slate-100 focus:border-cyanAccent-500 focus:ring-1 focus:ring-cyanAccent-500 focus:outline-none transition-all text-sm"
+                                placeholder="Tuliskan pesan Anda..."></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-cyanAccent-600 to-blue-600 text-white font-semibold hover:from-cyanAccent-500 hover:to-blue-500 transition-all shadow-lg shadow-cyanAccent-600/20 flex items-center justify-center gap-2">
+                            <span>Kirim Pesan</span>
+                            <i class="fas fa-paper-plane text-xs"></i>
+                        </button>
+                        <div id="form-status" class="hidden text-center text-xs font-medium p-3 rounded-xl border">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+        class="bg-slate-100 dark:bg-navy-950 border-t border-slate-200 dark:border-navy-800/80 py-8 transition-colors duration-300">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-slate-500 dark:text-slate-400 text-center md:text-left">
+                &copy; 2026 Harel Haidar. Dibuat khusus untuk portofolio Teknik Sipil.
+            </p>
+            <div class="flex space-x-6 text-xs text-slate-500 dark:text-slate-400">
+                <a href="#beranda"
+                    class="hover:text-cyan-600 dark:hover:text-cyanAccent-400 transition-colors">Beranda</a>
+                <a href="#tentang"
+                    class="hover:text-cyan-600 dark:hover:text-cyanAccent-400 transition-colors">Tentang</a>
+                <a href="#proyek"
+                    class="hover:text-cyan-600 dark:hover:text-cyanAccent-400 transition-colors">Proyek</a>
+                <a href="#kontak"
+                    class="hover:text-cyan-600 dark:hover:text-cyanAccent-400 transition-colors">Kontak</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Floating Button -->
+    <button id="back-to-top" type="button" aria-label="Kembali ke atas"
+        class="hide fixed bottom-6 right-6 z-40 p-3.5 rounded-full bg-cyanAccent-600 text-white shadow-xl hover:bg-cyanAccent-500 hover:shadow-cyanAccent-500/30 transition-all flex items-center justify-center">
+        <i class="fas fa-arrow-up text-sm"></i>
+    </button>
+
+    <!-- Custom Main JavaScript (Separated JS) -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

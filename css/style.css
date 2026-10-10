@@ -1,0 +1,171 @@
+/* ==========================================================================
+   Harel Haidar - Civil Engineering Portfolio
+   Custom Stylesheet (css/style.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Root Variables & Base Setup
+   -------------------------------------------------------------------------- */
+:root {
+    --primary-cyan: #0ea5e9;
+    --primary-blue: #2563eb;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #060a12;
+}
+
+html:not(.dark) ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 5px;
+    border: 2px solid #060a12;
+}
+
+html:not(.dark) ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border: 2px solid #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0ea5e9;
+}
+
+/* --------------------------------------------------------------------------
+   2. Blueprint Grid Pattern Overlays
+   -------------------------------------------------------------------------- */
+.grid-pattern {
+    position: relative;
+}
+
+/* Dark mode blueprint dots */
+.dark .grid-pattern {
+    background-image: radial-gradient(rgba(14, 165, 233, 0.15) 1px, transparent 1px);
+    background-size: 28px 28px;
+}
+
+/* Light mode blueprint dots */
+html:not(.dark) .grid-pattern {
+    background-image: radial-gradient(rgba(14, 165, 233, 0.2) 1px, transparent 1px);
+    background-size: 28px 28px;
+}
+
+/* Structural Blueprint subtle grid */
+.blueprint-card-grid {
+    background-image: radial-gradient(#38bdf8 1px, transparent 1px);
+    background-size: 16px 16px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Scroll Reveal Animations
+   -------------------------------------------------------------------------- */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   4. Navigation & Active States
+   -------------------------------------------------------------------------- */
+.nav-link {
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #38bdf8, #2563eb);
+    border-radius: 9999px;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active-nav::after {
+    width: 100%;
+}
+
+.nav-link.active-nav {
+    color: #38bdf8 !important;
+    font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   5. Project Cards & Filtering
+   -------------------------------------------------------------------------- */
+.project-card {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.3s ease,
+                opacity 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+}
+
+/* Card image overlay effect */
+.project-card .img-zoom {
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.project-card:hover .img-zoom {
+    transform: scale(1.06);
+}
+
+/* --------------------------------------------------------------------------
+   6. Floating Action Button (Back To Top)
+   -------------------------------------------------------------------------- */
+#back-to-top {
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#back-to-top.hide {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px);
+}
+
+/* --------------------------------------------------------------------------
+   7. Glassmorphism Utilities
+   -------------------------------------------------------------------------- */
+.glass-header {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
